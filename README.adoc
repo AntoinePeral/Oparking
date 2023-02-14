@@ -1,0 +1,12 @@
+= GestionParking
+
+image:./enonce.PNG[]
+
+== Les étapes
+
+* MCD / MLD
+* Création des models via sequelize
+* Création de la bdd via sequelize
+* Création des controllers
+* Création de la SPA
+
