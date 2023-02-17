@@ -23,13 +23,13 @@ const personController = {
     res.json(person)
   },
   addPerson : async (req, res) =>{
-    const {firstname, lastname} = req.body;
-    console.log(firstname);
+    const personData = {
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
 
-    if (typeof firstname != 'string' || firstname.length< 2) {
-      errors.error400(res);
     }
-    const newPerson = await Person.create({firstname, lastname});
+
+    const newPerson = await Person.create(personData);
     res.json(newPerson)
 
   },
@@ -53,6 +53,7 @@ const personController = {
   },
   delete: async function (req, res, next){
     const personId = Number(req.params.personId);
+    console.log(personId);
     const personToDelete = await Person.findByPk(personId);
 
     if (!personToDelete) {

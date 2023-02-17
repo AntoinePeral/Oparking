@@ -14,7 +14,8 @@ Car.init ({
   },
   personId: {
     type: DataTypes.INTEGER,
-    field: "person_id"
+    field: "person_id",
+    defaultValue: null
   }
 }, {
   sequelize,
