@@ -5,12 +5,12 @@ class Car extends Model {}
 
 Car.init ({
   model: {
-    type: DataTypes.TEXT,
-    allowNull: false
+    type: DataTypes.STRING,
+    // allowNull: false
   },
   immatriculation: {
-    type: DataTypes.TEXT,
-    allowNull: false
+    type: DataTypes.STRING,
+    // allowNull: false
   },
   personId: {
     type: DataTypes.INTEGER,

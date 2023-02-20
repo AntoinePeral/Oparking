@@ -18,9 +18,11 @@ const personModule = {
         personModule.makePersonInDOM(person);
         //On crée une option par person
         const option = document.createElement('option');
-        option.value = person.id;
-        option.text = `${person.firstname} ${person.lastname}`;
-        personSelect.appendChild(option);
+        if (!option.value) {
+            option.value = person.id;
+            option.text = `${person.firstname} ${person.lastname}`;
+            personSelect.appendChild(option);   
+        }
     };
   },
     //Fonction de crÃ©ation des persons dans le DOM

@@ -53,12 +53,34 @@ const carModule = {
     console.log(formData.get('model'));
     console.log(formData.get('immatriculation'));
     console.log(formData.get('personId'));
-    if(!formData.get('personId')){
-      await fetch(`${app.base_url}/cars`, {
-          method: 'POST',
-          body:  {model: formData.get('model')}
-      })
+    
+    let personId = formData.get('personId')
+    const model = formData.get('model');
+    const immatriculation = formData.get('immatriculation');
+    console.log(model);
+    console.log(immatriculation);
+    console.log(personId);
+
+    if (!personId) {
+      personId= null
     }
+
+    console.log(personId);
+
+    const data =  {
+      model: model,
+      immatriculation: immatriculation,
+      personId: personId
+    }
+
+    console.log(data);
+
+    await fetch(`${app.base_url}/cars`, {
+      method:'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({model: formData.get('model'), immatriculation: formData.get('immatriculation'), personId: personId })
+      // Ou body: JSON.stringify(data)
+    })
  
 
     carModule.getCarsFromApi()
